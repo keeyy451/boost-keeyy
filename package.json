@@ -1,0 +1,71 @@
+{
+  "name": "emuboost",
+  "version": "2.0.0",
+  "description": "Professional Android Emulator & Windows Performance Optimizer",
+  "main": "main.js",
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && electron . --dev\"",
+    "build": "vite build",
+    "preview": "vite preview",
+    "package": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "electron-log": "^5.4.4",
+    "electron-updater": "^6.8.3",
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^0.435.0",
+    "node-cron": "^4.2.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.6.0",
+    "recharts": "^3.8.1",
+    "systeminformation": "^5.23.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^8.2.2",
+    "electron": "^31.3.1",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10",
+    "vite": "^5.4.2",
+    "wait-on": "^8.0.1"
+  },
+  "build": {
+    "appId": "com.emuboost.app",
+    "productName": "EmuBoost",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "keeyy451",
+        "repo": "boost-keeyy"
+      }
+    ],
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "preload.js",
+      "database.js",
+      "optimizer.js",
+      "license.js",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keeyy451/boost-keeyy.git"
+  }
+}
