@@ -46,7 +46,7 @@ const Sidebar = ({ activeTab, setActiveTab, isPro, appVersion }) => {
       <div className="px-4 pb-5 flex flex-col items-center border-b border-white/5">
         <div className="relative mb-3">
           <img
-            src="/logo.jpeg"
+            src="./logo.jpeg"
             alt="EmuBoost"
             className="w-20 h-20 rounded-2xl object-contain"
             style={{ boxShadow: '0 0 30px rgba(0,240,255,0.2), 0 0 60px rgba(0,240,255,0.05)' }}

@@ -7,7 +7,8 @@
     "dev": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && electron . --dev\"",
     "build": "vite build",
     "preview": "vite preview",
-    "package": "npm run build && electron-builder"
+    "package": "npm run build && electron-builder",
+    "package:portable": "npm run build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --win portable"
   },
   "dependencies": {
     "electron-log": "^5.4.4",
@@ -27,6 +28,7 @@
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
     "concurrently": "^8.2.2",
+    "cross-env": "^10.1.0",
     "electron": "^31.3.1",
     "electron-builder": "^24.13.3",
     "postcss": "^8.4.41",
@@ -57,7 +59,16 @@
       "package.json"
     ],
     "win": {
-      "target": "nsis"
+      "target": [
+        {
+          "target": "portable"
+        },
+        {
+          "target": "nsis"
+        }
+      ],
+      "signingHashAlgorithms": null,
+      "sign": null
     },
     "nsis": {
       "oneClick": false,
